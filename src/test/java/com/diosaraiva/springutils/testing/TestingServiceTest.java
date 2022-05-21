@@ -4,6 +4,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
+import com.diosaraiva.springutils.utils.testing.TestingService;
+
 class TestingServiceTest{
 	@Test
 	void addTest(){

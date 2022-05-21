@@ -33,5 +33,5 @@ public class Demo implements Serializable
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern="dd-MM-yyyy HH:mm:ss")
 	private LocalDateTime time;
 
-	private String dbTest;
+	private String test;
 }

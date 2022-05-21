@@ -1,15 +1,25 @@
-package com.diosaraiva.springutils.utils.console;
+package com.diosaraiva.springutils.ui.console;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class AppOptions{
+import com.diosaraiva.springutils.ui.options.OptionsEnum;
+
+public class ConsoleOptions{
 	public boolean runConsole(){
-		Map<Integer,String> optionList = getOptionList();
+		System.out.println(new StringBuilder()
+				.append("----------------[ MENU: ")
+				.append(OptionsEnum.values().length)
+				.append(" OPTIONS ]----------------"));
+
+		Map<Integer,String> optionList = OptionsEnum.getOptionsFromEnum();
+
+		OptionsEnum.printOptions(optionList);
+
+		System.out.println("\n0. EXIT PROGRAM");
 
 		try{		
 			String option = readUserOption();
@@ -29,7 +39,7 @@ public class AppOptions{
 					.append(option)
 					.append("> ]----------------"));
 
-			if(option != null) AppOptionsEnum.runOptionEnum(option);
+			if(option != null) OptionsEnum.runConsoleOption(option);
 
 			else displayInvalidOption();
 		} catch (Exception e){
@@ -39,29 +49,6 @@ public class AppOptions{
 		pressToContinue();
 
 		return true;
-	}
-
-	private Map<Integer,String> getOptionList(){
-		Map<Integer, String> optionList = new HashMap<Integer, String>();
-
-		System.out.println(new StringBuilder()
-				.append("----------------[ MENU: ")
-				.append(AppOptionsEnum.values().length)
-				.append(" OPTIONS ]----------------"));
-
-		int i = 0;
-		for (AppOptionsEnum appOptionsEnum : AppOptionsEnum.values()){
-			String appOption = appOptionsEnum.getEnumOption();
-			optionList.put(++i, appOption);
-			System.out.println(new StringBuilder()
-					.append(i)
-					.append(". ")
-					.append(appOption));
-		}
-
-		System.out.println("\n0. EXIT PROGRAM");
-
-		return optionList;
 	}
 
 	private String readUserOption() throws IOException{

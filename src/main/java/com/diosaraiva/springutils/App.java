@@ -10,6 +10,7 @@ public class App{
 	{
 		new SpringApplicationBuilder(App.class)
 		.web(WebApplicationType.SERVLET)
+		.headless(false)
 		.run(args);
 	}
 }

@@ -1,4 +1,4 @@
-package com.diosaraiva.springutils.testing;
+package com.diosaraiva.springutils.utils.testing;
 
 public class TestingService{
 	public int add(int a, int b){

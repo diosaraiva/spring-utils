@@ -24,5 +24,5 @@ public class DemoDto implements Serializable
 	private LocalDateTime time;
 
 	//landio-api
-	private String dbTest;
+	private String test;
 }
